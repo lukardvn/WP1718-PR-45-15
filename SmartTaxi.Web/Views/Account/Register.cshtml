@@ -1,0 +1,77 @@
+﻿@using SmartTaxi.Web.Domain.Enums
+@model SmartTaxi.Web.Models.RegisterViewModel
+@{ ViewBag.Title = "Registracija"; }
+
+<div class="container">
+    <h2 class="text-center m-4">@ViewBag.Title</h2>
+    <hr />
+    <div class="row">
+        @using (Html.BeginForm(
+            "Register",
+            "Account",
+            FormMethod.Post,
+            new {@class = "col-md-4 offset-md-4 p-3", role = "form"}))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+            <div class="form-group">
+                @{
+                    IList<SelectListItem> list = Enum.GetValues(typeof(Gender))
+                        .Cast<Gender>()
+                        .Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() })
+                        .ToList();
+
+                    SelectList data = new SelectList(list, "Value", "Text");
+                }
+                @Html.LabelFor(m => m.Gender)
+                @Html.DropDownList("gender", data, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Jmbg)
+                @Html.TextBoxFor(m => m.Jmbg, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Jmbg)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Telephone)
+                @Html.TextBoxFor(m => m.Telephone, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Telephone)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default btn-block">Sacuvaj</button>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

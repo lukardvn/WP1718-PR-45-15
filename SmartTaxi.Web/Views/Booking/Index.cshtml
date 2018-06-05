@@ -1,0 +1,37 @@
+﻿@using SmartTaxi.Web.Domain
+@using SmartTaxi.Web.Domain.Enums
+@model IEnumerable<Booking>
+
+
+<div class="bookings">
+    <h2>Sve vozjnje</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Datum i vreme kreiranja</th>
+                <th scope="col">Pocetna lokacija</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.CreatedAt.ToString("dd/MM/yyyy hh:mm tt")</td>
+                <td>@booking.PickUpLocation.Address.ToString()</td>
+                <td>@booking.Status</td>
+                @if (booking.Status == BookingStatus.Kreirana)
+                {
+                    <td>@Html.ActionLink("Otkazi voznju", "Cancel", "Booking", new { id = booking.Id }, new { @class = "nav-link" })</td>
+                }
+                @if (booking.Status == BookingStatus.Obradjena || booking.Status == BookingStatus.Prihvacena)
+                {
+                    <td>@Html.ActionLink("Zavrsi voznju", "Finalize", "Booking", null, new { @class = "nav-link" })</td>
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

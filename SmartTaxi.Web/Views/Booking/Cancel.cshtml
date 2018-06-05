@@ -1,0 +1,33 @@
+﻿@model SmartTaxi.Web.Models.ViewModels.CancelBookingViewModel
+
+<h2 class="text-center m-5">Otkazivanje voznje</h2>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                Detalji o voznji: 
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Datum kreiranja: @Model.Booking.CreatedAt.ToString("dd-MM-yyyy")</h5>
+                <div>Lokacija: @Model.Booking.PickUpLocation.Address.ToString()</div>
+            </div>
+        </div>
+
+        @using (Html.BeginForm("CancelPost", "Booking", FormMethod.Post))
+        {
+            <div class="form-group ">
+                <label for="Reason">Razlog otkazivanja</label>
+                @Html.TextAreaFor(model => model.Reason, new {@class = "form-control", rows = 5})
+                @Html.ValidationMessageFor(model => model.Reason)
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-danger btn-block">
+                    <i class="fas fa-times-circle"></i>
+                    Otkazi voznju
+                </button>
+            </div>
+        }
+    </div>
+    
+</div>

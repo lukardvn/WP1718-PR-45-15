@@ -1,0 +1,37 @@
+﻿@model System.Collections.Generic.List<SmartTaxi.Web.Domain.Driver>
+
+<!DOCTYPE html>
+
+<div class="container">
+    <div class="row">
+        <h2>Lista vozaca</h2>
+        <div class="row">
+            @Html.ActionLink("Vozaci", "Index", "Driver", null, new { @class = "btn btn-primary" })
+        </div>
+        <div class="drivers">
+            @if (Model.Count != 0)
+            {
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Ime</th>
+                        <th scope="col">Prezime</th>
+                        <th scope="col">Broj telefona</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var driver in Model)
+                    {
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>@driver.FirstName</td>
+                            <td>@driver.LastName</td>
+                            <td>@driver.Telephone</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
