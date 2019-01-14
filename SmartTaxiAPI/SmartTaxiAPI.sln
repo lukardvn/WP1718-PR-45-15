@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartTaxi.Api", "SmartTaxi.Api\SmartTaxi.Api.csproj", "{7AC6A32B-BFAD-4305-83D9-7BC3DB984B46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AC6A32B-BFAD-4305-83D9-7BC3DB984B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC6A32B-BFAD-4305-83D9-7BC3DB984B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC6A32B-BFAD-4305-83D9-7BC3DB984B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC6A32B-BFAD-4305-83D9-7BC3DB984B46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57CAC77A-0837-4329-9854-102FF0B86BED}
+	EndGlobalSection
+EndGlobal
